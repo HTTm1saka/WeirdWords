@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">诡词生成器</string>
+    <string name="results">本轮结果</string>
+    <string name="generate">再生成</string>
+    <string name="copy_all">复制全部</string>
+    <string name="copy_word">复制「%1$s」</string>
+    <string name="copied_word">已复制「%1$s」</string>
+    <string name="copied_all">已复制 4 条结果</string>
+    <string name="copy_unavailable">暂时无法复制，请再试一次</string>
+    <string name="about">关于</string>
+    <string name="back">返回</string>
+    <string name="author">作者：m1saka</string>
+    <string name="github_label" translatable="false">github:</string>
+    <string name="github_url" translatable="false">https://github.com/HTTm1saka</string>
+    <string name="link_unavailable">找不到可以打开 GitHub 链接的应用</string>
+</resources>
