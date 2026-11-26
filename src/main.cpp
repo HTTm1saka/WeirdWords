@@ -237,9 +237,11 @@ void PaintWindow(const App& app) {
     RECT client{};
     GetClientRect(app.window, &client);
     const auto layout = GetLayout(app);
+    static const auto description = L"用 " + std::to_wstring(weird_words::kCharacters.size()) +
+                                    L" 个字随机拼词，偶尔混入一个熟词。";
     PaintBuffered(dc, client, app.dpi, kCanvas, [&](Graphics& graphics, float, float) {
         PaintText(graphics, kTitle, Box(layout.left - 4, layout.top, layout.width, 61), kDisplayFont, 54, kInk);
-        PaintText(graphics, L"用 27 个字随机拼词，偶尔混入一个熟词。",
+        PaintText(graphics, description,
                   Box(layout.left - 1, layout.top + 66, layout.width, 28), kBodyFont, 16, kMuted);
         FillRounded(graphics, Box(layout.left, layout.top + 116, layout.width, 240), 16, kPanel);
     });

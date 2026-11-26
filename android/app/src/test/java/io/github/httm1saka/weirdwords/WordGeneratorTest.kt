@@ -9,14 +9,19 @@ class WordGeneratorTest {
     @Test
     fun batchesKeepTheirFormatsAndDistinctSlots() {
         val random = Random(281156)
+        val seen = mutableSetOf<Char>()
         repeat(10_000) {
             val (pair, triple, repeated, phrase) = generateBatch(random)
             assertEquals(listOf(2, 3, 5, 7), listOf(pair.length, triple.length, repeated.length, phrase.length))
             assertEquals(repeated[2], repeated[3])
             assertEquals("是个啥", phrase.substring(2, 5))
             val slots = listOf(pair, triple, repeated.removeRange(3, 4), phrase.removeRange(2, 5))
-            for (letters in slots) assertEquals(letters.length, letters.toSet().size)
+            for (letters in slots) {
+                assertEquals(letters.length, letters.toSet().size)
+                seen.addAll(letters.toList())
+            }
         }
+        assertTrue(seen.containsAll("轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆".toSet()))
     }
 
     @Test
