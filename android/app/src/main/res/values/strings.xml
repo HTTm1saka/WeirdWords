@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">诡词生成器</string>
+    <string name="app_name">炸绷生成器</string>
     <string name="results">本轮结果</string>
     <string name="generate">再生成</string>
     <string name="copy_all">复制全部</string>

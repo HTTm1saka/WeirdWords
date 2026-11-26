@@ -12,7 +12,7 @@ namespace {
 
 using namespace Gdiplus;
 
-constexpr wchar_t kTitle[] = L"诡词生成器";
+constexpr wchar_t kTitle[] = L"炸绷生成器";
 constexpr wchar_t kWindowClass[] = L"WeirdWordsWindow";
 constexpr wchar_t kShortcutHint[] = L"Enter 再生成  ·  Ctrl+C 复制全部";
 constexpr wchar_t kGenerateLabel[] = L"再生成";

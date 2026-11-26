@@ -11,12 +11,23 @@ android {
         applicationId = "io.github.httm1saka.weirdwords"
         minSdk = 31
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     buildFeatures {
         compose = true
+    }
+
+    buildTypes {
+        release {
+            optimization {
+                enable = true
+            }
+            if (providers.gradleProperty("signWithDebugKey").orNull == "true") {
+                signingConfig = signingConfigs.getByName("debug")
+            }
+        }
     }
 
     compileOptions {
