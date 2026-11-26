@@ -10,7 +10,7 @@
     <string name="copy_unavailable">暂时无法复制，请再试一次</string>
     <string name="about">关于</string>
     <string name="back">返回</string>
-    <string name="author">作者：m1saka</string>
+    <string name="author">作者：m1saka(野够先神)</string>
     <string name="github_label" translatable="false">github:</string>
     <string name="github_url" translatable="false">https://github.com/HTTm1saka</string>
     <string name="link_unavailable">找不到可以打开 GitHub 链接的应用</string>
