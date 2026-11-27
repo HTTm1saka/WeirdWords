@@ -6,13 +6,21 @@
 #include <string>
 #include <string_view>
 
+#ifndef WEIRD_WORDS_WORD_COUNT
+#define WEIRD_WORDS_WORD_COUNT 45
+#endif
+
 namespace weird_words {
 
 using Batch = std::array<std::wstring, 4>;
 
 inline constexpr std::wstring_view kCharacters =
     L"雷霆痞绷乐咪塞蛋猪炸阴爆刚球大骚裂爽狂蒸尿猖闹麻鬼飞嫩"
-    L"轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆";
+#if WEIRD_WORDS_WORD_COUNT == 45
+    L"轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆"
+#endif
+    ;
+static_assert(kCharacters.size() == WEIRD_WORDS_WORD_COUNT);
 inline constexpr std::array<std::wstring_view, 10> kFamiliarWords = {
     L"猪咪", L"阴间", L"骚刚", L"雷霆", L"老弟",
     L"闹麻", L"舒嫩", L"炸绷", L"炸刚", L"破解",

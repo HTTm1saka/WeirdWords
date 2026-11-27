@@ -18,10 +18,17 @@ class WordGeneratorTest {
             val slots = listOf(pair, triple, repeated.removeRange(3, 4), phrase.removeRange(2, 5))
             for (letters in slots) {
                 assertEquals(letters.length, letters.toSet().size)
-                seen.addAll(letters.toList())
+                seen.addAll(letters.asIterable())
             }
         }
-        assertTrue(seen.containsAll("轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆".toSet()))
+        val original = "雷霆痞绷乐咪塞蛋猪炸阴爆刚球大骚裂爽狂蒸尿猖闹麻鬼飞嫩"
+        val expected = when (BuildConfig.FLAVOR) {
+            "classic" -> original
+            "expanded" -> original + "轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆"
+            else -> error("Unknown vocabulary flavor: ${BuildConfig.FLAVOR}")
+        }
+        // These characters can only enter a batch as part of an embedded familiar word.
+        assertEquals(expected.toSet(), seen - "间老弟舒破解".toSet())
     }
 
     @Test

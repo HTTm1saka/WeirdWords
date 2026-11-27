@@ -11,12 +11,26 @@ android {
         applicationId = "io.github.httm1saka.weirdwords"
         minSdk = 31
         targetSdk = 37
-        versionCode = 4
-        versionName = "1.0.3"
+        versionCode = 5
+        versionName = "1.1.0"
     }
 
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    flavorDimensions += "vocabulary"
+    productFlavors {
+        create("classic") {
+            dimension = "vocabulary"
+            applicationIdSuffix = ".classic"
+            buildConfigField("boolean", "EXPANDED_VOCABULARY", "false")
+        }
+        create("expanded") {
+            dimension = "vocabulary"
+            buildConfigField("boolean", "EXPANDED_VOCABULARY", "true")
+        }
     }
 
     buildTypes {

@@ -462,7 +462,8 @@ int Run(HINSTANCE instance, int show) {
     app.dpi = GetDpiForSystem();
     RECT initial{0, 0, Pixels(kDefaultWidth, app.dpi), Pixels(kDefaultHeight, app.dpi)};
     AdjustWindowRectExForDpi(&initial, WS_OVERLAPPEDWINDOW, FALSE, 0, app.dpi);
-    HWND window = CreateWindowExW(0, kWindowClass, kTitle, WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
+    const auto caption = std::wstring(kTitle) + L" · " + std::to_wstring(weird_words::kCharacters.size()) + L" 字版";
+    HWND window = CreateWindowExW(0, kWindowClass, caption.c_str(), WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
                                   CW_USEDEFAULT, CW_USEDEFAULT, initial.right - initial.left,
                                   initial.bottom - initial.top, nullptr, nullptr, instance, &app);
     if (!window) {

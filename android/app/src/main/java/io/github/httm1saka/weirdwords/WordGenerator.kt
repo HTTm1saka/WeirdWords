@@ -9,8 +9,9 @@ internal enum class WordFormat(val pattern: String, vararg val familiarPositions
     PHRASE("AB是个啥CD", 0, 5),
 }
 
-private const val characters = "雷霆痞绷乐咪塞蛋猪炸阴爆刚球大骚裂爽狂蒸尿猖闹麻鬼飞嫩" +
-    "轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆"
+private const val classicCharacters = "雷霆痞绷乐咪塞蛋猪炸阴爆刚球大骚裂爽狂蒸尿猖闹麻鬼飞嫩"
+private const val expandedCharacters = classicCharacters + "轰嘣崩劈砸甩蹦癫嗷嚎嘎咕呱噗嗝哐糊脆"
+private val characters = if (BuildConfig.EXPANDED_VOCABULARY) expandedCharacters else classicCharacters
 private val familiarWords = listOf("猪咪", "阴间", "骚刚", "雷霆", "老弟", "闹麻", "舒嫩", "炸绷", "炸刚", "破解")
 
 internal fun generateBatch(random: Random = Random.Default): List<String> {
